@@ -36,6 +36,11 @@ public class Horse extends AbstractTransport{
         return true;
     }
 
+    @Override
+    public void info() {
+        System.out.println("У лошади осталось сил: " + power);
+    }
+
 }
 
 

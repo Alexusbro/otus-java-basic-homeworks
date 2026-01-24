@@ -7,4 +7,5 @@ public interface Transport {
     public boolean move(int distance, Area area);
     public void assignDriver(Human human);
     public void removeDriver();
+    public void info();
 }

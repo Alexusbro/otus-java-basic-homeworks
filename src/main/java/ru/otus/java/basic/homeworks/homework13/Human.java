@@ -61,4 +61,7 @@ public class Human {
         return true;
     }
 
+    public void info() {
+        System.out.println("У человека осталось сил: " + power);
+    }
 }

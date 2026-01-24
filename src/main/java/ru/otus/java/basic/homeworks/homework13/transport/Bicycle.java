@@ -30,4 +30,8 @@ public class Bicycle extends AbstractTransport {
         return true;
     }
 
+    public void info() {
+        System.out.println("Велосипед в порядке");
+    }
+
 }

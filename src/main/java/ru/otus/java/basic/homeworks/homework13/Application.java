@@ -29,12 +29,12 @@ public class Application {
             men.outTransport();
         }
 
-        System.out.println();
-        System.out.println("У человека осталось сил: " + men.getPower());
-        System.out.println("У автомобиля осталось топлива: " + car.getFuel());
-        System.out.println("У вездехода осталось топлива: " + rover.getFuel());
-        System.out.println("У лошади осталось сил: " + horse.getPower());
-        System.out.println();
+        System.out.println("_________________________");
+       for (Transport item: transportList) {
+           item.info();
+       }
+       men.info();
+        System.out.println("_________________________");
 
         for (Transport item : transportList) {
             men.inTransport(item);

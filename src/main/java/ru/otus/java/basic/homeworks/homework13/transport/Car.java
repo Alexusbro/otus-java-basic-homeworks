@@ -37,5 +37,8 @@ public class Car extends AbstractTransport {
         return true;
     }
 
-
+    @Override
+    public void info() {
+        System.out.println("У автомобиля осталось топлива: " + fuel);
+    }
 }

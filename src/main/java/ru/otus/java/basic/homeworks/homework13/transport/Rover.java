@@ -32,5 +32,8 @@ public class Rover extends AbstractTransport {
         System.out.printf("%s проехал %s, %d км\n", super.type, area, distance);
         return true;
     }
-
+    @Override
+    public void info() {
+        System.out.println("У вездехода осталось топлива: " + fuel);
+    }
 }

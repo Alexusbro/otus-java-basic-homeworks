@@ -25,5 +25,4 @@ public abstract class AbstractTransport implements Transport {
         driver = null;
     }
 
-
 }
