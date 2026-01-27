@@ -42,9 +42,9 @@ public class Human {
         currentTransport = null;
     }
 
-    public Transport getCurrentTransport() {
-        return currentTransport;
-    }
+//    public Transport getCurrentTransport() {
+//        return currentTransport;
+//    }
 
     public boolean move(int distance, Area area) {
         if (currentTransport != null) {
