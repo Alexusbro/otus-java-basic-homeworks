@@ -12,6 +12,11 @@ public class Person {
     }
 
     @Override
+    public String toString() {
+        return firstname + " " + surname;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (!(o instanceof Person person)) return false;
         return Objects.equals(firstname, person.firstname) && Objects.equals(surname, person.surname);

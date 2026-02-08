@@ -11,8 +11,8 @@ public class Application {
         phoneBook.add(personId2, 38504);
         phoneBook.add(personId3, 23456);
         phoneBook.add(personId1, 32145);
-        System.out.println(phoneBook.find(personId2));
-        System.out.println(phoneBook.find(personId1));
+        System.out.println(personId2 + " имеет номер(а) телефона: " + phoneBook.find(personId2));
+        System.out.println(personId1 + " имеет номер(а) телефона: " + phoneBook.find(personId1));
         System.out.println(phoneBook.find("Николай", "Петров"));
         System.out.println(phoneBook.containsPhoneNumber(23456));
 
