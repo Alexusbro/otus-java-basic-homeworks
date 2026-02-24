@@ -15,7 +15,7 @@ public class Application {
         long endTime1 = System.nanoTime();
         double result1 = (double) (endTime1 - startTime1) / 1_000_000;
         System.out.printf("время заполнения массива: %.2f милисекунд\n", result1);
-        System.out.println("многотопочное заполнение");
+        System.out.println("многопоточное заполнение");
         System.out.println("введите количество потоков:");
         int amountThread = scan.nextInt();
         scan.close();
