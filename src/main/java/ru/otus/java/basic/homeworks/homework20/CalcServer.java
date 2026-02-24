@@ -7,9 +7,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CalcServer {
     public static void main(String[] args) {
+        final Pattern PATTERN_CALCULATE = Pattern.compile("(-?\\d+(?:\\.\\d+)?)([+\\-*/])(-?\\d+(?:\\.\\d+)?)");
         try (ServerSocket socket = new ServerSocket(8080)) {
             System.out.println("Сервер запущен");
             while (true) {
@@ -23,8 +26,8 @@ public class CalcServer {
 
                     while (true) {
                         String userInput = input.readUTF().replaceAll("\\s+", "");
-                        String[] task = userInput.split("[+\\-/*]");
-                        if (task.length < 2) {
+                        Matcher matcher = PATTERN_CALCULATE.matcher(userInput);
+                        if (!matcher.matches()) {
                             output.writeUTF("введены некорректные данные");
                             output.flush();
                             continue;
@@ -32,15 +35,15 @@ public class CalcServer {
                         double number1;
                         double number2;
                         try {
-                            number1 = Double.parseDouble(task[0]);
-                            number2 = Double.parseDouble(task[1]);
+                            number1 = Double.parseDouble(matcher.group(1));
+                            number2 = Double.parseDouble(matcher.group(3));
                         } catch (NumberFormatException ex) {
                             output.writeUTF("введен неверный формат чисел");
                             output.flush();
                             continue;
                         }
 
-                        char operate = userInput.charAt(task[0].length());
+                        char operate = matcher.group(2).charAt(0);
                         Double result;
 
                         switch (operate) {

@@ -12,7 +12,7 @@ public class CalcClient {
             while (true) {
                 System.out.println("Введите данные для вычисления одной строкой");
                 String input = scan.nextLine();
-                if (input.equals("exit")) break;
+                if (input.trim().equals("exit")) break;
                 if (input.isEmpty()) {
                     System.out.println("вы ввели пустую строку");
                     continue;

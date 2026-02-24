@@ -16,7 +16,7 @@ public class CalculateClient implements AutoCloseable {
             String message = inputStream.readUTF();
             System.out.println(message);
         } catch (IOException e) {
-            System.out.println("не удалось получить сообщение от сервера");;
+            System.out.println("не удалось получить сообщение от сервера");
         }
     }
 
