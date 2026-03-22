@@ -7,24 +7,32 @@ import java.util.Map;
 
 public class Box<T extends Fruit> {
     private List<T> fruits;
-    private int weightBox;
 
     public Box() {
         fruits = new ArrayList<>();
-        weightBox = 0;
     }
 
     public void putFruit(T fruit) {
         if (fruit == null) {
-            System.out.println("Вы ничего не положиили в коробку");
+            System.out.println("Вы ничего не положили в коробку");
             return;
         }
         fruits.add(fruit);
-        weightBox += fruit.getWeight();
+    }
+
+    public int weightBox() {
+        int weight = 0;
+        for (T fruit : fruits) {
+            weight += fruit.getWeight();
+        }
+        return weight;
     }
 
     public boolean compare(Box<?> box) {
-        return this.weightBox == box.weightBox;
+        if (box == null) {
+            return false;
+        }
+        return weightBox() == box.weightBox();
     }
 
     public void replaceFruit(Box<? super T> box) {
@@ -32,9 +40,12 @@ public class Box<T extends Fruit> {
             System.out.println("ваша коробка пустая");
             return;
         }
-        T fruit = fruits.removeFirst();
-        weightBox -= fruit.getWeight();
+        List<T> tmp = new ArrayList<>(fruits);
+        for (T fruit : tmp) {
         box.putFruit(fruit);
+        }
+        fruits.clear();
+
     }
 
     public void countOfFruits() {
